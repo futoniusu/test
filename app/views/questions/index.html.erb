@@ -1,0 +1,13 @@
+<p>質問一覧</p>
+<% @questions.each do |question| %>
+  ・<%= question.question %> &nbsp;(<%= question.user.nickname %>）
+  <% if user_signed_in? && current_user.id == question.user_id %>
+  <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
+  <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
+  <% end %>
+  <br/>
+<% end %>
+
+<br/>
+<%= paginate(@questions) %></br>
+<a href="questions/new">質問を投稿する</a><br/><br/>

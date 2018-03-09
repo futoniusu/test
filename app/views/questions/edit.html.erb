@@ -1,0 +1,5 @@
+<%= form_tag("/questions/#{@question.id}", method: :patch) do %>
+<h3>編集する</h3>
+<textarea name="question" placeholder="text"><%= @question.question %></textarea><br/>
+<input type="submit" value="SENT">
+<% end %>

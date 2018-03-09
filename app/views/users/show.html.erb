@@ -1,0 +1,4 @@
+<p><%= @nickname %>さんの投稿一覧</p>
+<% @questions.each do |question| %>
+  <p><%= question.question %></p>
+<% end %>
