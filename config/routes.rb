@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   patch 'questions/:id' => "questions#update"
   get 'questions/:id/edit' => 'questions#edit'
   get 'users/:id' => "users#show"
+  get 'questions/:id/new' => "answers#new"
+  post 'questions/:id/new' => 'answers#create'
 end

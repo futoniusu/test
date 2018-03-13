@@ -1,4 +1,8 @@
-<p><%= @nickname %>さんの投稿一覧</p>
+<p><%= @nickname %>さんの質問一覧</p>
 <% @questions.each do |question| %>
   <p><%= question.question %></p>
-<% end %>
+<% end %><br/><br/><br/>
+<p><%= @nickname %>さんの解答一覧</p>
+<% @answers.each do |answer| %>
+  <%= link_to answer.question.question, "/questions/#{answer.question.id}/new", method: :get %><br/><br/>
+<% end %><br/><br/><br/>

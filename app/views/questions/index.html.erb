@@ -1,12 +1,29 @@
 <p>質問一覧</p>
-<% @questions.each do |question| %>
-  ・<%= question.question %> &nbsp;(<%= question.user.nickname %>）
-  <% if user_signed_in? && current_user.id == question.user_id %>
-  <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
-  <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
+<div class="tab-menu">
+
+  <ul>
+    <li id="left" class="selected">言語</li>
+    <li id="right">祭事</li>
+    <!-- <li>風習</li> -->
+  </ul>
+  <% @questions.each do |question| %>
+  <div class="contents">
+    <% if question.category == 1 %>
+    <div class="left">
+      <%= render :partial => "question", :locals => { question: question } %>
+
+    </div>
+    <% end %>
+
+    <% if question.category == 2 %>
+    <div class="right">
+      <%= render :partial => "question", :locals => { question: question } %>
+    </div>
+    <% end %>
+
+  </div>
   <% end %>
-  <br/>
-<% end %>
+</div>
 
 <br/>
 <%= paginate(@questions) %></br>

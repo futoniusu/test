@@ -1,0 +1,9 @@
+  ・<%= question.question %> &nbsp;(<%= question.user.nickname %>）
+  <% if user_signed_in? && current_user.id == question.user_id %>
+  <%= link_to '編集', "/questions/#{question.id}/edit", method: :get %>
+  <%= link_to '削除', "/questions/#{question.id}", method: :delete %>
+  <% end %>
+  <% if user_signed_in? %>
+  <%= link_to '解答', "/questions/#{question.id}/new", method: :get %>
+  <% end %>
+</br>

@@ -3,16 +3,18 @@
 <head>
   <title>Glcouple</title>
   <% if user_signed_in? %>
-    <ul>
-      <li>
-        <a href="/users/<%= current_user.id %>"><%= current_user.nickname %>さんのマイページ</a>
+    <!-- <ul> -->
+      <!-- <li> -->
+        <a href="/users/<%= current_user.id %>"><%= current_user.nickname %>さんのマイページ</a></br>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    </ul>
+      <!-- </li> -->
+    <!-- </ul> -->
   <% else %>
+        <a href="/users/<%= current_user.id %>"><%= current_user.nickname %>さんのマイページ</a></br>
     <%= link_to "ログイン", new_user_session_path %>
     <%= link_to "新規登録", new_user_registration_path %>
   <% end %>
+  <br/><a href="/">ホーム</a>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>

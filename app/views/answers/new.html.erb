@@ -1,0 +1,12 @@
+<%= form_tag("/questions/#{@question.id}/new", method: :post) do %>
+  <p>質問</p>
+  <a><%= @question.question %></a><br/><br/>
+  <p>解答一覧</p>
+  <% @answers.each do |answer| %>
+    <p><%= answer.answer %></p>
+  <% end %>
+  <br/>
+  <p><%= @question.user.nickname %>さんの解答</p>
+  <textarea cols="30" rows="10" type="textarea" name="answer" placeholder="解答を書いてください" =""></textarea><br/>
+  <input type="submit" value="投稿">
+<% end %>
